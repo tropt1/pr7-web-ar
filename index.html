@@ -2,13 +2,13 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>AR.js + A-Frame — Практика</title>
+  <title>AR.js + A-Frame (Stable)</title>
 
-  <!-- A-Frame -->
-  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <!-- ⚠ СТАБИЛЬНАЯ версия A-Frame -->
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
 
-  <!-- AR.js Marker Based -->
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <!-- ⚠ СТАБИЛЬНАЯ версия AR.js -->
+  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.5/aframe/build/aframe-ar.js"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -16,10 +16,12 @@
     body {
       margin: 0;
       overflow: hidden;
+      background: black;
     }
+
     #hint {
       position: fixed;
-      top: 20px;
+      top: 15px;
       width: 100%;
       text-align: center;
       color: white;
@@ -28,27 +30,34 @@
       text-shadow: 0 0 5px black;
     }
   </style>
-
 </head>
+
 <body>
 
-<div id="hint">Наведите камеру на маркер Hiro</div>
+<div id="hint">Наведи камеру на маркер Hiro</div>
 
 <a-scene
-  embedded
   vr-mode-ui="enabled: false"
-  arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+  embedded
+  arjs="sourceType: webcam; debugUIEnabled: false;"
+  renderer="precision: mediump;"
 >
 
   <!-- Маркер Hiro -->
   <a-marker preset="hiro">
 
-    <!-- Простой объект -->
-    <a-box position="0 0.5 0" material="color: red"></a-box>
+    <!-- ТЕСТОВЫЙ ОБЪЕКТ -->
+    <a-box
+      position="0 0.5 0"
+      rotation="0 45 0"
+      material="color: red">
+    </a-box>
 
   </a-marker>
 
+  <!-- Камера -->
   <a-entity camera></a-entity>
+
 </a-scene>
 
 </body>
